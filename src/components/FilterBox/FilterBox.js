@@ -1,8 +1,7 @@
 import { useState,useEffect } from "react"
 import { generateDataOptions,months,years } from "../../utils/DataRender"
 import "./FilterBox.css"
-const FilterBox = ()=>{
- 
+const FilterBox = ({getMonthYear})=>{
     const [selectedMonth,setSelectedMonth]=useState("January");
     const [selectedYear,setSelectedYear]=useState(2023);
 
@@ -17,7 +16,12 @@ const FilterBox = ()=>{
        setSelectedYear(Number(e.target.value))
     } 
    
-   
+    useEffect(()=>{
+        const updateParent=()=>{
+            getMonthYear(selectedMonth,selectedYear)
+        }
+        updateParent()
+    },[selectedMonth,selectedYear,getMonthYear])
     return(
         <div>
             <form className="filter-card">
@@ -39,7 +43,9 @@ const FilterBox = ()=>{
                     >
                         {yearsToRender()}
                     </select>
+                   
                </div>
+               <button type='submit'>Find Events</button>
                </div>
              </form>
            
