@@ -1,5 +1,5 @@
 import React from 'react'
-import SerachEventList from '../../components/SerachEventList/SerachEventList'
+import SearchEventList from '../../components/SerachEventList/SearchEventList'
 import FilterBox from '../../components/FilterBox/FilterBox'
 import './FilterEvents.css';
 
@@ -9,7 +9,7 @@ function FilterEvents() {
     <div>
       <h1>FilterEvents</h1>
       <FilterBox/>
-      <SerachEventList/>
+      <SearchEventList/>
     </div>
   )
 }
